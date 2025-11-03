@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações de CSS</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minhas Anotações</h1>
+    </header>
+
+    <main class="conteudo-pagina">
+      <nav class="nav-paginas">
+        <ul>
+          <li><a href="noteHtml.html">HTML</a></li>
+          <li><a href="noteCss.html" class="active">CSS</a></li>
+          <li><a href="noteJs.html">JavaScript</a></li>
+          <li><a href="noteReact.html">React</a></li>
+          <li><a href="noteNode.html">Node.js</a></li>
+        </ul>
+      </nav>
+
+      <h1>CSS (Estilização)</h1>
+      <p>CSS significa "Cascading Style Sheets". É a linguagem de estilização. Se o HTML é o esqueleto, o CSS é a "pintura", a aparência.</p>
+
+      <h2>Sintaxe Básica</h2>
+      <p>A estrutura do CSS é sempre <code>seletor { propriedade: valor; }</code>.</p>
+      <pre><code>
+        /* 'h1' é o seletor */
+        /* 'color' é a propriedade */
+        /* 'blue' é o valor */
+        h1 {
+          color: blue;
+          font-size: 24px;
+        }
+      </code></pre>
+
+      <h2>Seletores (Como escolher o que estilizar)</h2>
+      <p>Seletores são o jeito de dizer ao CSS qual elemento HTML você quer mudar.</p>
+      <ul>
+        <li><strong>Tag:</strong> Afeta todas as tags daquele tipo. (Ex: <code>p</code>, <code>h1</code>, <code>div</code>).</li>
+        <li><strong>ID:</strong> Usa o <code>#</code>. É um identificador ÚNICO. (Ex: <code>#menu-principal</code>).</li>
+        <li><strong>Classe:</strong> Usa o <code>.</code>. Pode ser usado em VÁRIOS elementos. (Ex: <code>.botao</code>).</li>
+      </ul>
+      <pre><code>]
+        /* Pega todas as tags 'p' */
+        p {
+          line-height: 1.5;
+        }
+
+        /* Pega SÓ o elemento com id="logo" */
+        #logo {
+          width: 150px;
+        }
+
+        /* Pega TODOS elementos com class="item-lista" */
+        .item-lista {
+          font-weight: bold;
+        }
+      </code></pre>
+
+      <h2>As 3 Formas de Usar CSS</h2>
+      <ol>
+        <li>
+          <strong>CSS Externo (O melhor jeito):</strong>
+          <p>Criar um arquivo <code>style.css</code> separado e "linkar" ele no <code>&lt;head&gt;</code> do HTML. É o mais organizado.</p>
+          <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>
+        </li>
+        <li>
+          <strong>CSS Interno:</strong>
+          <p>Colocar o CSS dentro da tag <code>&lt;style&gt;</code>, direto no <code>&lt;head&gt;</code> do HTML.</p>
+        </li>
+        <li>
+          <strong>CSS Inline:</strong>
+          <p>Colocar o estilo direto na tag HTML usando o atributo <code>style</code>. (Ex: <code>&lt;p style="color: red;"&gt;...&lt;/p&gt;</code>). Deve ser evitado.</p>
+        </li>
+      </ol>
+
+      <h2>Layouts</h2>
+      <p>Para organizar a página (ex: colunas, itens lado a lado), os mais usados são <strong>Flexbox</strong> (<code>display: flex;</code>) e <strong>Grid</strong> (<code>display: grid;</code>).</p>
+
+      <a href="../index.html" class="link-voltar">&larr; Voltar ao Menu</a>
+    </main>
+
+    <footer>
+      <p>Feito por <a href="https://github.com/LiviaMot" target="_blank">Livia Mota</a>. &copy; Todos os direitos reservados</p>
+    </footer>
+  </body>
+</html>
