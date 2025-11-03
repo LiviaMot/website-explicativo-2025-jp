@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações de Node.js</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minhas Anotações</h1>
+    </header>
+
+    <main class="conteudo-pagina">
+      <nav class="nav-paginas">
+        <ul>
+          <li><a href="noteHtml.html">HTML</a></li>
+          <li><a href="noteCss.html">CSS</a></li>
+          <li><a href="noteJs.html">JavaScript</a></li>
+          <li><a href="noteReact.html">React</a></li>
+          <li><a href="noteNode.html" class="active">Node.js</a></li>
+        </ul>
+      </nav>
+
+      <h1>Anotações de Node.js (Backend)</h1>
+        
+      <p>Backend é o que roda no servidor. Ele cuida da lógica, da segurança e do banco de dados. O Node.js é o que usamos para fazer o backend usando JavaScript.</p>
+
+      <h2>Como iniciar um projeto Node.js</h2>
+      <p>Esse é o passo a passo para começar um projeto do zero:</p>
+      <ol>
+        <li>Começamos rodando o comando: <code>npm init</code> (ele cria o <code>package.json</code>).</li>
+        <li>Depois baixar o express: <code>npm i express</code>.</li>
+        <li>Depois baixar o Jest (para testes):
+          <ul>
+            <li>
+              <strong>No Windows:</strong> <code>npm i --save-dev jest cross-env</code>
+              <br>E colocar no <code>package.json</code>:
+              <pre><code>"test": "cross-env TEST=true node --experimental-vm-modules node_modules/jest/bin/jest.js"</code></pre>
+            </li>
+            <li>
+              <strong>No Linux:</strong> <code>npm i --save-dev jest</code> (o <code>cross-env</code> não é necessário)
+              <br>E colocar no <code>package.json</code>:
+              <pre><code>"test": "TEST=true node --experimental-vm-modules node_modules/jest/bin/jest.js"</code></pre>
+            </li>
+          </ul>
+        </li>
+        <li>Verificar se no <code>package.json</code> está o <code>"type": "module";</code> (Isso é o que deixa a gente usar <code>import</code> e <code>export</code>).</li>
+      </ol>
+      <p>Feito isso, pode começar a estruturação do projeto.</p>
+
+      <h2>Estruturação de pastas e arquivos</h2>
+      <p>Para o projeto ficar organizado, a gente separa as responsabilidades em pastas (parecido com o MVC):</p>
+      <ul>
+        <li>Criar a pasta <strong><code>src</code></strong> (aqui fica todo o nosso código).</li>
+        <li>Dentro da <code>src</code>, criar o <strong><code>index.js</code></strong> (é o arquivo principal que "roda" o servidor).</li>
+        <li>Dentro da <code>src</code>, criar as pastas:
+          <ul>
+            <li><strong><code>routes</code>:</strong> Define as URLs (endpoints).</li>
+            <li><strong><code>controllers</code>:</strong> O "meio de campo" que recebe a requisição.</li>
+            <li><strong><code>services</code>:</strong> Onde fica a lógica e as validações (o "cérebro").</li>
+            <li><strong><code>model</code>:</strong> A camada que fala com o banco de dados.</li>
+          </ul>
+        </li>
+        <li>Fora da <code>src</code>, criar a pasta <strong><code>_testes_</code></strong> (para os testes unitários).</li>
+      </ul>
+      <p><strong>Por onde começar (Fluxo de criação):</strong></p>
+      <!-- Preencher depois -->
+      
+      <h2>Iniciando um Projeto</h2>
+      <ul>
+        <li><code>npm init</code>: Comando para começar um projeto novo. Ele cria o <code>package.json</code>.</li>
+        <li><code>package.json</code>: É o arquivo que guarda as infos e as "libs" (dependências) do projeto.</li>
+      </ul>
+
+      <h2>Express (Nosso primeiro servidor)</h2>
+      <p>Express é uma "lib" (framework) que ajuda a criar um servidor web (API) muito fácil.</p>
+      <p>Para instalar: <code>npm i express</code>.</p>
+      <p>Código básico para subir um servidor (arquivo <code>index.js</code>):</p>
+      <pre><code>
+        import express from "express";
+        const app = express();
+        
+        app.get("/", (req, res) => {
+          res.json({ message: "Hello World!" });
+        });
+
+        app.listen(3000, () => {
+          console.log("Servidor rodando na porta 3000");
+        });</code></pre>
+      <p>Para rodar o servidor: <code>node index.js</code>.</p>
+      <p>Para testar essa rota <code>GET</code>, é só abrir <code>http://localhost:3000</code> no navegador.</p>
+
+      <h2>O que é Middleware?</h2>
+      <p>Middleware é como um "porteiro" ou "segurança" da nossa API. É uma função que roda <strong>no meio</strong> do caminho, entre a requisição (a chamada do usuário) e a nossa resposta final.</p>
+      <p>Ele pode fazer várias coisas:</p>
+      <ul>
+        <li>Verificar se o usuário está logado (autenticação).</li>
+        <li>Tratar erros de um jeito padrão.</li>
+        <li>Ou, o mais comum: "traduzir" o que o usuário mandou. O <code>app.use(express.json());</code> é um middleware que pega o JSON que o usuário enviou no "body" e transforma em um objeto JavaScript que o nosso código entende.</li>
+      </ul>
+
+      <h2>Métodos HTTP (O que a API pode fazer)</h2>
+      <p>São os "tipos" de chamada que a API pode receber:</p>
+      <ul>
+        <li><code>GET</code>: Para <strong>buscar</strong> dados.</li>
+        <li><code>POST</code>: Para <strong>criar</strong> um dado novo.</li>
+        <li><code>PUT</code>: Para <strong>atualizar</strong> um dado que já existe.</li>
+        <li><code>DELETE</code>: Para <strong>apagar</strong> um dado.</li>
+      </ul>
+
+      <h2>Recebendo Dados na API</h2>
+      
+      <h3>1. Body (para POST e PUT)</h3>
+      <p>Os dados (JSON) são enviados no "corpo" da requisição.</p>
+      <p>O Express não entende JSON sozinho. Precisamos adicionar este "middleware":</p>
+      <pre><code>app.use(express.json());</code></pre>
+      <p>Depois disso, podemos pegar os dados do <code>req.body</code>:</p>
+      <pre><code>
+        app.post("/api/exercicio", (req, res) => {
+          const num1 = req.body.num1;
+          const num2 = req.body.num2;
+          const result = num1 + num2;
+          res.status(201).json({ message: `Resultado: ${result}` });
+        });
+      </code></pre>
+      <p>Usamos o <strong>Postman</strong> para testar rotas <code>POST</code>.</p>
+
+      <h3>2. Params (para GET e DELETE)</h3>
+      <ul>
+        <li><strong>Route Params:</strong> Vêm na própria URL (são "obrigatórios").
+          <p>Rota: <code>app.get("/api/pessoa/:id", ...)</code></p>
+          <p>Como pegar: <code>const pessoaId = req.params.id;</code></p>
+        </li>
+        <li><strong>Query Params:</strong> Vêm depois do <code>?</code> (são "opcionais", para filtros).
+          <p>URL: <code>.../pessoa/123?nome=joao</code></p>
+          <p>Como pegar: <code>const nome = req.query.nome;</code></p>
+        </li>
+      </ul>
+      
+      <h2>Tratamento de Erros</h2>
+      <p>Para o servidor não "quebrar" se algo der errado.</p>
+      <ul>
+        <li><code>throw new Error("Mensagem")</code>: A gente usa isso para "forçar" um erro. Bom para validações (tipo, se um campo não veio).</li>
+        <li><code>try...catch</code>: Usamos no Controller. O <code>try</code> tenta rodar o código. Se o <code>throw</code> acontecer, o <code>catch</code> pega o erro e manda uma resposta bonita (ex: status 500) em vez de travar o servidor.</li>
+      </ul>
+      <pre><code>
+        try {
+          const result = servico.Calcular(num1, num2);
+          res.status(201).json({ message: `Resultado: ${result}` });
+        } catch (error) {
+          res.status(500).json({ message: error.message });
+        }
+      </code></pre>
+
+      <h2>Estrutura de Projeto (MVC)</h2>
+      <p>Para organizar o código (bem parecido com o C#):</p>
+      <ul>
+        <li><code>routes</code>: Define as URLs (endpoints) e chama o Controller.</li>
+        <li><code>controllers</code>: Recebe a requisição (<code>req</code>, <code>res</code>). Chama o Service (dentro de um <code>try...catch</code>) e manda a resposta (JSON).</li>
+        <li><code>services</code>: Onde fica a lógica e as validações (onde usamos <code>throw</code>). É o "cérebro".</li>
+        <li><code>models</code>: Fala com o banco de dados (no começo, pode ser só um Array).</li>
+        <li><code>index.js</code> (ou <code>app.js</code>): Arquivo principal que roda tudo.</li>
+      </ul>
+
+      <h2>Banco de Dados e ORM (Sequelize)</h2>
+      <p>O Array no Model é só para teste. No mundo real, usamos Banco de Dados (tipo MySQL).</p>
+      <p><strong>ORM (Object-Relational Mapping)</strong>: É uma ferramenta que conecta nossos "objetos" (JS) com as "tabelas" (SQL), para não ter que escrever SQL puro.</p>
+      <ul>
+        <li><strong>Sequelize:</strong> É o ORM que usamos com Node.</li>
+        <li><strong>Instalar:</strong> <code>npm install sequelize mysql2</code>.</li>
+      </ul>
+
+      <h2>Async / Await</h2>
+      <p>Falar com banco de dados demora. O JS não espera, ele é <strong>assíncrono</strong>.</p>
+      <p>Para o código ficar mais fácil de ler e "esperar" o banco responder, usamos <code>async</code> e <code>await</code>.</p>
+      <ul>
+        <li><code>async</code>: Avisa que a função é assíncrona (coloca antes do nome da função).</li>
+        <li><code>await</code>: Pausa o código até o banco de dados responder (coloca antes da chamada do banco).</li>
+      </ul>
+      <pre><code>
+        async function buscarUsuario(id) {
+          const usuario = await user.findByPk(id);
+  
+          if (!usuario) {
+            throw new Error("Usuário não encontrado.");
+          }
+          return usuario;
+        }
+      </code></pre>
+
+      <a href="../index.html" class="link-voltar">&larr; Voltar ao Menu</a>
+    </main>
+
+    <footer>
+      <p>Feito por <a href="https://github.com/LiviaMot" target="_blank">Livia Mota</a>. &copy; Todos os direitos reservados</p>
+    </footer>
+  </body>
+</html>

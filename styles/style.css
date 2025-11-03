@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header e Footer */
+header, footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #32CD32;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Conteúdo Principal */
+main.conteudo-pagina {
+  max-width: 900px;
+  width: 90%;
+  margin: 20px auto; 
+  
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  
+  /* Empurra o footer para baixo */
+  flex-grow: 1; 
+}
+
+/* Menu de Navegação */
+.nav-paginas {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.nav-paginas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 !important;
+}
+
+.nav-paginas li {
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.nav-paginas a {
+  text-decoration: none;
+  color: #1a6802;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.nav-paginas a:hover, .nav-paginas a.active {
+  background-color: #e0f0da;
+}
+
+/* Títulos */
+.conteudo-pagina h1 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.conteudo-pagina h2 {
+  color: #1a6802;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.conteudo-pagina h3 {
+  color: #114202;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Texto e Listas */
+.conteudo-pagina p, .conteudo-pagina ul, .conteudo-pagina ol {
+  margin-bottom: 15px;
+}
+
+.conteudo-pagina ul, .conteudo-pagina ol {
+  margin-left: 30px;
+}
+
+/* Blocos de Código */
+.conteudo-pagina pre {
+  background-color: #2d2d2d;
+  color: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Código Inline (fora de um <pre>) */
+.conteudo-pagina :not(pre) > code {
+  background-color: #e0f0da;
+  color: #114202;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+/* Código dentro de um <pre> (para resetar o estilo) */
+.conteudo-pagina pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-weight: normal;
+}
+
+/* Link para Voltar */
+.link-voltar {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #1a6802;
+  border: 1px solid #1a6802;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.link-voltar:hover {
+  background-color: #1a6802;
+  color: #fff;
+}

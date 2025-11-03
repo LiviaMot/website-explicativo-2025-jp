@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações de HTML</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minhas Anotações</h1>
+    </header>
+
+    <main class="conteudo-pagina">
+
+      <nav class="nav-paginas">
+        <ul>
+          <li><a href="noteHtml.html" class="active">HTML</a></li> <li><a href="noteCss.html">CSS</a></li>
+          <li><a href="noteJs.html">JavaScript</a></li>
+          <li><a href="noteReact.html">React</a></li>
+          <li><a href="noteNode.html">Node.js</a></li>
+        </ul>
+      </nav>
+
+      <h1>HTML (Introdução)</h1>
+      
+      <p>HTML é o "HyperText Markup Language". Basicamente, é a linguagem de marcação, o esqueleto de toda página web.</p>
+      
+      <h2>Front-end vs. Back-end</h2>
+      <ul>
+        <li><strong>Front-end:</strong> É a parte visual do site, o que o usuário vê e interage. É feito com HTML, CSS e JS.</li>
+        <li><strong>Back-end:</strong> Onde fica a regra de negócio. Onde os cadastros e logins são processados.</li>
+      </ul>
+
+      <h2>O que são Tags?</h2>
+      <p>São os "comandos" do HTML. Elas vêm entre <code>&lt;</code> e <code>&gt;</code>. Quase toda tag tem uma de abertura e uma de fechamento.</p>
+      <p>Exemplo: <code>&lt;p&gt;Isso é um parágrafo.&lt;/p&gt;</code>.</p>
+      
+      <h2>O que são Atributos?</h2>
+      <p>São informações extras que a gente passa para uma tag. Elas ficam dentro da tag de abertura.</p>
+      <pre><code>
+        &lt;!-- 'src' e 'alt' são atributos da tag 'img' --&gt;
+        &lt;img src="foto.jpg" alt="Descrição da foto"&gt;
+      </code></pre>
+
+      <h2>Estrutura Básica de uma Página</h2>
+      <p>Todo arquivo HTML tem essa estrutura:</p>
+      <pre><code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="pt-br"&gt;
+        &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Título que aparece na aba&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;!-- O conteúdo que aparece no site vai aqui --&gt;
+        &lt;h1&gt;Meu site&lt;/h1&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+      </code></pre>
+
+      <h2>Algumas Tags Importantes</h2>
+      <ul>
+        <li><code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>... <code>&lt;h6&gt;</code>: Tags de título, para hierarquia.</li>
+        <li><code>&lt;p&gt;</code>: Parágrafo.</li>
+        <li><code>&lt;div&gt;</code>: Uma "caixa" genérica para agrupar e organizar conteúdo.</li>
+        <li><code>&lt;a href="url"&gt;...&lt;/a&gt;</code>: Para criar links.</li>
+        <li><code>&lt;img src="arquivo"&gt;</code>: Para mostrar imagens.</li>
+        <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code>: Para criar listas (não ordenadas e ordenadas).</li>
+      </ul>
+
+     <a href="../index.html" class="link-voltar">&larr; Voltar ao Menu</a>
+    </main>
+
+    <footer>
+      <p>Feito por <a href="https://github.com/LiviaMot" target="_blank">Livia Mota</a>. &copy; Todos os direitos reservados</p>
+    </footer>
+  </body>
+</html>

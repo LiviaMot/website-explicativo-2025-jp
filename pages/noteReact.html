@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações de React</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minhas Anotações</h1>
+    </header>
+
+    <main class="conteudo-pagina">
+      <nav class="nav-paginas">
+        <ul>
+          <li><a href="noteHtml.html">HTML</a></li>
+          <li><a href="noteCss.html">CSS</a></li>
+          <li><a href="noteJs.html">JavaScript</a></li>
+          <li><a href="noteReact.html" class="active">React</a></li>
+          <li><a href="noteNode.html">Node.js</a></li>
+        </ul>
+      </nav>
+
+      <h1>React</h1>
+        
+      <p>React é uma <strong>biblioteca</strong> JavaScript para construir interfaces de usuário (UI). A ideia principal dele é a <strong>componentização</strong>.</p>
+      
+      <h2>O que são Componentes?</h2>
+      <p>É o conceito de quebrar a interface em pedaços pequenos e reutilizáveis. Em vez de uma página gigante, você tem:</p>
+      <ul>
+        <li>Um componente <code>&lt;Header /&gt;</code></li>
+        <li>Um componente <code>&lt;Footer /&gt;</code></li>
+        <li>Um componente <code>&lt;CardProduto /&gt;</code> (que você pode reusar várias vezes)</li>
+      </ul>
+
+      <h2>JSX (JavaScript XML)</h2>
+      <p>É uma sintaxe que parece HTML, mas que escrevemos dentro do JavaScript. É o que usamos para definir o que um componente vai mostrar na tela.</p>
+      <pre><code>
+        function Botao() {
+          // Isso parece HTML, mas é JSX:
+          return (
+          &lt;button class="meu-botao"&gt;Clique Aqui&lt;/button&gt;
+          );
+        }
+      </code></pre>
+
+      <h2>Props vs. State</h2>
+      <ul>
+          <li>
+            <strong>Props (Propriedades):</strong> Informações que um componente "pai" passa para um "filho". São <strong>só de leitura</strong>.
+            <p>Ex: <code>&lt;CardProduto titulo="Produto 1" /&gt;</code>. O <code>titulo</code> é uma prop.</p>
+          </li>
+          <li>
+            <strong>State (Estado):</strong> É a "memória" interna de um componente. Quando o estado muda, o React "redesenha" aquele componente. Usamos o <code>useState</code>.
+            <pre><code>
+              // 'contador' é o estado, 'setContador' é a função pra mudar ele
+              const [contador, setContador] = useState(0);
+            </code></pre>
+          </li>
+      </ul>
+      
+      <h2>Como criar um projeto (Vite)</h2>
+      <p>O professor avisou que o <code>create-react-app</code> (CRA) foi descontinuado. A forma moderna de começar é com o <strong>Vite</strong>.</p>
+      <pre><code>
+        # 1. Cria o projeto
+        npm create vite@latest . --template react
+
+        # 2. Instala as dependências
+        npm install
+        
+        # 3. Roda o projeto
+        npm run dev
+      </code></pre>
+
+      <h2>Rotas (Navegação) com React Router</h2>
+      <p>React é uma "Single Page Application" (SPA), ou seja, ele não recarrega a página. Para ter várias páginas (tipo <code>/sobre</code>, <code>/contato</code>), usamos a biblioteca <code>react-router-dom</code>.</p>
+      
+      <h3>Passos para usar o Router:</h3>
+      <ol>
+        <li>Instalar: <code>npm i react-router-dom</code></li>
+        <li>No <code>main.jsx</code>: Envolver o <code>&lt;App /&gt;</code> com o <code>&lt;BrowserRouter&gt;</code>.</li>
+        <li>No <code>App.jsx</code>: Configurar as rotas:
+            <pre><code>
+              import { Routes, Route, Link } from 'react-router-dom';
+              import Home from './pages/Home'; // sua página Home
+              import Sobre from './pages/Sobre'; // sua página Sobre
+              
+              function App() {
+                return (
+                  &lt;&gt;
+                  &lt;nav&gt;
+                  {/* Link é o substituto do &lt;a&gt; */}
+                  &lt;Link to="/"&gt;Home&lt;/Link&gt;
+                  &lt;Link to="/sobre"&gt;Sobre&lt;/Link&gt;
+                  &lt;/nav&gt;
+
+                {/* Define quais componentes aparecem em quais URLs */}
+                &lt;Routes&gt;
+                  &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+                  &lt;Route path="/sobre" element={&lt;Sobre /&gt;} /&gt;
+                &lt;/Routes&gt;
+              &lt;/&gt;
+              )
+            }
+          </code></pre>
+        </li>
+      </ol>
+
+      <a href="../index.html" class="link-voltar">&larr; Voltar ao Menu</a>
+    </main>
+
+    <footer>
+      <p>Feito por <a href="https://github.com/LiviaMot" target="_blank">Livia Mota</a>. &copy; Todos os direitos reservados</p>
+    </footer>
+  </body>'
+</html>

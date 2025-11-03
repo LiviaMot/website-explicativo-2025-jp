@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações de JS</title>
+    <link rel="stylesheet" href="../styles/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>Minhas Anotações</h1>
+    </header>
+
+    <main class="conteudo-pagina">
+      <nav class="nav-paginas">
+        <ul>
+          <li><a href="noteHtml.html">HTML</a></li>
+          <li><a href="noteCss.html">CSS</a></li>
+          <li><a href="noteJs.html" class="active">JavaScript</a></li>
+          <li><a href="noteReact.html">React</a></li>
+          <li><a href="noteNode.html">Node.js</a></li>
+        </ul>
+      </nav>
+
+      <h1>JavaScript (Interatividade)</h1>
+        
+      <p>JavaScript (JS) é a linguagem de programação que dá vida e interatividade à página. Se HTML é o esqueleto e CSS é a pintura, o JS é o "motor".</p>
+      
+      <h2>Funções do JS</h2>
+      <ul>
+        <li>Dar interatividade (cliques, menus, pop-ups).</li>
+        <li>Manipular o DOM (mudar o conteúdo da página sem recarregar).</li>
+        <li>Validar formulários (verificar se o e-mail está certo, etc).</li>
+        <li>Comunicação Assíncrona (buscar dados de um servidor, tipo o clima).</li>
+      </ul>
+
+      <h2>O que é o DOM?</h2>
+      <p>DOM significa "Document Object Model". É a representação do HTML que o JS consegue "ler" e "modificar". Quando o JS muda o DOM, a página muda pro usuário.</p>
+
+      <h2>Manipulando o DOM</h2>
+      <p>Comandos principais para "mexer" na página:</p>
+      <ul>
+        <li><code>document.getElementById('id-do-elemento')</code>: Pega um elemento pelo seu ID.</li>
+        <li><code>document.querySelector('.classe-css')</code>: Pega o PRIMEIRO elemento que bater com o seletor CSS (igual ao CSS).</li>
+        <li><code>document.createElement('div')</code>: Cria um novo elemento (uma div, no caso), mas ele ainda não aparece na tela.</li>
+        <li><code>elementoPai.appendChild(elementoFilho)</code>: Pega o elemento novo e "pendura" ele dentro de outro elemento que já está na tela.</li>
+      </ul>
+
+      <h2>Eventos (Ouvindo o Usuário)</h2>
+      <p>Eventos são como o JS "ouve" o que o usuário faz (clicar, digitar, passar o mouse). O mais usado é o <code>addEventListener</code>.</p>
+      <pre><code>
+        // 1. Pega o botão do HTML
+        const meuBotao = document.getElementById('botao-comprar');
+
+        // 2. Adiciona um "ouvinte" de clique nele
+        meuBotao.addEventListener('click', () => {
+          alert('Você clicou no botão!');
+        });
+      </code></pre>
+      <p>Eventos comuns: <code>click</code>, <code>submit</code> (para formulários), <code>mouseover</code> (passar o mouse por cima), <code>keydown</code> (apertar uma tecla).</p>
+
+      <a href="../index.html" class="link-voltar">&larr; Voltar ao Menu</a>
+    </main>
+
+    <footer>
+      <p>Feito por <a href="https://github.com/LiviaMot" target="_blank">Livia Mota</a>. &copy; Todos os direitos reservados</p>
+    </footer>
+  </body>
+</html>
